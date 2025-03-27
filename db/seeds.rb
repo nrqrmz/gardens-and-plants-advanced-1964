@@ -9,9 +9,18 @@
 #   end
 
 
-Garden.create(
-  name: 'El jardin de Jorge',
-  banner_url: 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/garden_1.jpg'
-)
+# Garden.create(
+#   name: 'El jardin de Jorge',
+#   banner_url: 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/garden_1.jpg'
+# )
 
-puts 'Jardin generado'
+# puts 'Jardin generado'
+
+Chore.destroy_all if Rails.env.development?
+
+names = %w[Water Mist Clean Feed Repot Rotate]
+
+names.each do |name|
+  Chore.create!(name: name)
+end
+

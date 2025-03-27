@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :plants, only: [:create]
   end
 
-  resources :plants, only: :destroy
+  resources :plants, only: :destroy do
+    resources :completions, only: %i[new create]
+  end
+
 end
-#/gardens/:id/plants
